@@ -1,35 +1,12 @@
-Question 1: When should accessor methods be used?
-       It should be used whenever we need to access or modify the private state of an object in a controlled manner.
-One of the main benefits of using accessor methods is that they provide an encapsulation mechanism for the
-object's internal state, preventing direct access to the object's fields from outside the object itself. This
-encapsulation protects the object's internal state, making it easier to maintain over time by preventing unintended changes.
-
-       Accessor methods are also helpful for validating and normalizing input before it gets assigned to the object's
-fields. For example, a setter method for a person's age field could ensure that the age value is within a valid range,
-such as between 0 and 120 years old.
-
-       Overall, using accessor methods helps ensure that an object's internal state is accessed and modified in a
-   controlled and maintainable way.
-
-Question 2: If you create a constructor method to build a DVD by title then create a constructor method to build a
-DVD by category. Does JAVA allow you to do this?
-       It does not allow us to do this. Java will display an error:" 'hust.soict.ict.aims.media.DigitalVideoDisc(String)' is already defined in
-'hust.soict.ict.aims.media.DigitalVideoDisc'". It means that the method is duplicate
-
-    Try to add a method addDigitalVideoDisc which allows to pass an arbitrary number ofarguments for dvd. Compare to an
-array parameter. What do you prefer in this case?
-    I like this method than an array parameter, since it is easy to add items. When I use array parameter, it will add
-all elements of the array including of null elements, then it makes error.
-
-    Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
-Java is a Pass by Value programming language
-
-    After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
-Since when we call swap function, the two parameter in this function copy the value of the two object you want to
-change the value. So it does not return the result as we expect.
-
-    After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
-Since it directly changes the value of the object
-
-    Write a toString() method for the DigitalVideoDisc class. What should be the return type of this method?
-String should be the return type of this method
+- Which classes are aggregates of other classes? Checking all constructors of whole classes if they initialize for their parts?
+               Cart is aggregate of Media. Store is aggregate of Media. CompactDisc is aggregate of Track
+- If the passing object is not an instance of Media, what happens?
+               equals() returns false. 
+- What class should implement the Comparable interface?
+              Class Media
+ - In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+              It returns a negative integer, zero, or a positive integer
+ - Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+                No since Comparable interface is used for internal comparison and can be implemented only once by class Media.
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+               I override compareTo() method in DigitalVideoDisc.
